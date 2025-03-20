@@ -10,25 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Check out the repository code.
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Setup Node.js environment.
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
 
-      # Install project dependencies.
       - name: Install Dependencies
         run: npm install
 
-      # Build the Vite project (ensure your package.json has a build script).
       - name: Build Project
         run: npm run build
 
-      # Deploy the build output to the gh-pages branch.
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
